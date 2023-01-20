@@ -1,6 +1,8 @@
-import UserModel from '../models/User.js'
+import { Request, Response } from 'express'
 
-export const getAllUsers = async (req, res) => {
+import UserModel from '../models/User'
+
+export const getAllUsers = async (req: Request, res: Response) => {
   try {
     const users = await UserModel.find().exec()
 
@@ -13,7 +15,7 @@ export const getAllUsers = async (req, res) => {
   }
 }
 
-export const getMe = async (req, res) => {
+export const getMe = async (req: Request, res: Response) => {
   try {
     const userId = '63b96ae825eec5201cebcdd9'
 

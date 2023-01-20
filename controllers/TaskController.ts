@@ -1,6 +1,8 @@
-import TaskModel from '../models/Task.js'
+import { Request, Response } from 'express'
 
-export const createTask = async (req, res) => {
+import TaskModel from '../models/Task'
+
+export const createTask = async (req: Request, res: Response) => {
   try {
     const doc = new TaskModel()
 
@@ -12,7 +14,7 @@ export const createTask = async (req, res) => {
   }
 }
 
-export const getBoardTasks = async (req, res) => {
+export const getBoardTasks = async (req: Request, res: Response) => {
   const boardId = req.params.boardId
   const id = req.params.id
 
@@ -28,7 +30,7 @@ export const getBoardTasks = async (req, res) => {
   }
 }
 
-export const updateTasks = async (req, res) => {
+export const updateTasks = async (req: Request, res: Response) => {
   const boardId = req.params.boardId
   const id = req.params.id
   const tasks = req.body.tasks
@@ -47,7 +49,7 @@ export const updateTasks = async (req, res) => {
   }
 }
 
-export const getAllTasks = async (req, res) => {
+export const getAllTasks = async (req: Request, res: Response) => {
   try {
     const tasks = await TaskModel.find().exec()
 

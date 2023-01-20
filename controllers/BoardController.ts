@@ -1,6 +1,8 @@
-import BoardModel from '../models/Board.js'
+import { Request, Response } from 'express'
 
-export const getAllBoards = async (req, res) => {
+import BoardModel from '../models/Board'
+
+export const getAllBoards = async (req: Request, res: Response) => {
   try {
     const boards = await BoardModel.find().exec()
 
